@@ -25,20 +25,16 @@
       "type": "color",
       "id": "background_color",
       "label": "t:sections.myherofooter.settings.background_color.label",
-      "default": "#000000"
+      "default": "#f4f4f4"
     },
     {
       "type": "color",
       "id": "text_color",
       "label": "t:sections.myherofooter.settings.text_color.label",
-      "default": "#ffffff"
+      "default": "#000000"
     }
   ],
   "presets": [{ "name": "t:sections.myherofooter.presets.name" }]
 }
 {% endschema %}
-{% stylesheet %}
-  .myherofooter {  background-color: {{ section.settings.background_color}} !important;}
-  .rowprice__description {  color: {{ section.settings.text_color}} !important; }
-{% endstylesheet %}
 {% javascript %}{% endjavascript %}
