@@ -1,0 +1,48 @@
+{{ 'myheader.css' | asset_url | stylesheet_tag }}
+<!-- header section -->
+<header class="header __dhiwise1734176180858">
+  <div class="rowfindtheideal">
+    <div class="rowuser_one">
+      {% if section.settings.user_one == blank %}
+        {% render 'img_user', class: 'user_one' %}
+      {% else %}
+        <img
+          src="{{section.settings.user_one | image_url}}"
+          alt="User"
+          width="64"
+          height="18"
+          loading="lazy"
+          class="user_one"
+        >
+      {% endif %}
+      {% if section.settings.user_three == blank %}
+        {% render 'img_user_black_900', class: 'user_three' %}
+      {% else %}
+        <img
+          src="{{section.settings.user_three | image_url}}"
+          alt="User"
+          width="74"
+          height="18"
+          loading="lazy"
+          class="user_three"
+        >
+      {% endif %}
+    </div>
+    <p class="findtheideal">{{ section.settings.findtheideal }}</p>
+
+    <button class="flex-row-center-center choose_gift" id="chooseGiftBtn">
+      <span> {{ 'sections.myheader.lbl_choose_gift' | t }}</span>
+      <div class="right-icon-wrapper">{% render 'img_line_15', class: 'line-15' %}</div>
+    </button>
+  </div>
+</header>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    var chooseGiftBtn = document.getElementById('chooseGiftBtn');
+    chooseGiftBtn.addEventListener('click', function () {
+      window.location.href = '/collections/all';
+    });
+  });
+</script>
+
+{% schema %}  {    "name": "t:sections.myheader.name",    "tag": "header",    "settings": [      {        "type": "text",        "id": "findtheideal",        "label": "t:sections.myheader.settings.findtheideal",        "default": "Find the ideal gift for your loved ones."      }, {        "type": "image_picker",        "id": "user_one",        "label": "t:sections.myheader.settings.user_one"      },      {        "type": "image_picker",        "id": "user_three",        "label": "t:sections.myheader.settings.user_three"      }    ], "presets": [      {        "name": "t:sections.myheader.presets.name",        "blocks": []      }    ]  }{% endschema %}
