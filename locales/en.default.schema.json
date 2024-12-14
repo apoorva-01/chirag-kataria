@@ -402,7 +402,7 @@
       },
       "settings": {
         "text": {
-          "label": "Announcement Text"
+          "label": "My HeroFooter Text"
         },
         "background_color": {
           "label": "Background Color"
