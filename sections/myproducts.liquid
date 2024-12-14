@@ -8,29 +8,27 @@
       {{ section.settings.tissovisonin }}
     </p>
     <div class="column__grid">
-      <div class="image-gallery">
-        {%- for product in collection.products limit: section.settings.products_to_show -%}
-          <div class="image-gallery__item">
-            <img
-              src="{{ product.featured_image | img_url: '432x444', crop: 'center' }}"
-              alt="{{ product.title | escape }}"
-              width="432"
-              height="444"
-              loading="lazy"
-              class="image-gallery__image"
-            >
-            {% render 'img_plus', class: 'image-gallery__add-icon' %}
-            <div class="image-gallery__overlay">
-              <h3>{{ product.title }}</h3>
-              <p>{{ product.price | money }}</p>
-              <form method="post" action="/cart/add">
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                <input type="submit" value="Add to cart" class="btn">
-              </form>
-            </div>
+      {%- for product in collection.products limit: section.settings.products_to_show -%}
+        <div class="image-gallery__item">
+          <img
+            src="{{ product.featured_image | img_url: '432x444', crop: 'center' }}"
+            alt="{{ product.title | escape }}"
+            width="432"
+            height="444"
+            loading="lazy"
+            class="image-gallery__image"
+          >
+          {% render 'img_plus', class: 'image-gallery__add-icon' %}
+          <div class="image-gallery__overlay">
+            <h3>{{ product.title }}</h3>
+            <p>{{ product.price | money }}</p>
+            <form method="post" action="/cart/add">
+              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+              <input type="submit" value="Add to cart" class="btn">
+            </form>
           </div>
-        {%- endfor -%}
-      </div>
+        </div>
+      {%- endfor -%}
     </div>
   </div>
 </div>
