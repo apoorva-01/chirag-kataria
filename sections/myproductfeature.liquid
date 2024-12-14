@@ -29,7 +29,7 @@
         </p>
         <p class="text__description">
           {{ product.description | strip_html | truncatewords: 30 }}
-          {{ product.product_variants }}
+          {{ product }}
         </p>
       </div>
     </div>
@@ -50,27 +50,27 @@
 
   <!-- product color options section -->
   {% comment %} {% assign current_product = product %}
-                                            <p class="color-selection__title">
-                                        {{ section.settings.color }} 
-                                            White
-                                          </p>
-                                          <div class="color-selection__options">
-                                            {% for variant in current_product.variants %}
-                                              {% if variant.available %}
-                                                <div class="options__{{ variant.title | handleize }}">
-                                                  <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                                                    <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
-                                                    <p class="options__{{ variant.title | handleize }}">
-                                                      {{ variant.title }} 
-                                                      Blue
-                                                    </p>
-                                                  </div>
-                                                  <div class="options__line"></div>
-                                                </div>
-                                              {% endif %}
-                                            {% endfor %}
-                                          </div>
-                    </div> {% endcomment %}
+                                                            <p class="color-selection__title">
+                                                        {{ section.settings.color }} 
+                                                            White
+                                                          </p>
+                                                          <div class="color-selection__options">
+                                                            {% for variant in current_product.variants %}
+                                                              {% if variant.available %}
+                                                                <div class="options__{{ variant.title | handleize }}">
+                                                                  <div class="{{ variant.title | handleize }}__line-text-wrapper">
+                                                                    <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
+                                                                    <p class="options__{{ variant.title | handleize }}">
+                                                                      {{ variant.title }} 
+                                                                      Blue
+                                                                    </p>
+                                                                  </div>
+                                                                  <div class="options__line"></div>
+                                                                </div>
+                                                              {% endif %}
+                                                            {% endfor %}
+                                                          </div>
+                            </div> {% endcomment %}
 
 
   <!-- product size selection section -->
