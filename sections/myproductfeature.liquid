@@ -33,6 +33,7 @@
       </div>
     </div>
   </div>
+
   {{ product.size }}
 {{ product.color }}
 
@@ -63,21 +64,21 @@
 
 
 <!-- product size selection section -->
-{% if product.options_with_values.size > 0 %}
-  <div class="product-details__size-selection">
-    <p class="color-selection__title">
-      {{ 'products.product.size' | t }}
-    </p>
-    <select
-      name="size"
-      style="background-image: url({{ 'defaultNoData.png' | file_url }})"
-      class="size-selection__dropdown">
-      {% for value in product.options_with_values.first.values %}
-        <option value="{{ value | escape }}">{{ value }}</option>
-      {% endfor %}
-    </select>
-  </div>
-{% endif %}
+{% comment %} {% if product.options_with_values.size > 0 %}
+      <div class="product-details__size-selection">
+        <p class="color-selection__title">
+          {{ 'products.product.size' | t }}
+        </p>
+        <select
+          name="size"
+          style="background-image: url({{ 'defaultNoData.png' | file_url }})"
+          class="size-selection__dropdown">
+          {% for value in product.options_with_values.first.values %}
+            <option value="{{ value | escape }}">{{ value }}</option>
+          {% endfor %}
+        </select>
+      </div>
+{% endif %} {% endcomment %}
 <!-- add to cart button section -->
 <button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
   <span>
