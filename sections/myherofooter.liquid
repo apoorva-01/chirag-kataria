@@ -3,6 +3,10 @@
 <div class="myherofooter myherofooter">
   <div class="rowprice">
     <p class="rowprice__description">{{ section.settings.text }}</p>
+    <p>
+      .myherofooter { background-color: {{ section.settings.background_color }};} .rowprice__description { color:
+      {{ section.settings.text_color }}; }
+    </p>
   </div>
 </div>
 
@@ -36,7 +40,7 @@
 }
 {% endschema %}
 {% stylesheet %}
-  .myherofooter {  background-color: {{ section.settings.background_color | escape}};}
-  .rowprice__description {  color: {{ section.settings.text_color | escape}};  text-align: center;  font-size: 16px;  font-weight: bold;}
+  .myherofooter {  background-color: {{ section.settings.background_color}};}
+  .rowprice__description {  color: {{ section.settings.text_color}}; }
 {% endstylesheet %}
 {% javascript %}{% endjavascript %}

@@ -59,11 +59,6 @@ img {
     }
 }
 
-:root {
-    --black_900: #000000;
-    --gray_100: #f4f4f4;
-}
-
 .myherofooter {
     width: 100%;
     display: flex;
@@ -86,9 +81,8 @@ img {
     }
 }
 
-
-
 .myherofooter .rowprice__description {
     font-weight: 400;
     font-size: 16px;
+    text-align: center;
 }
