@@ -65,19 +65,19 @@ img {
     --yellow_500: #fff444;
 }
 
-.__dhiwise1734179940637 .flex-row-center-center {
+.myherobanner .flex-row-center-center {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
 
-.__dhiwise1734179940637.myherobanner {
+.myherobanner.myherobanner {
     background-color: var(--white_a700);
     width: 100%;
 }
 
-.__dhiwise1734179940637 .row {
+.myherobanner .row {
     height: 780px;
     padding-top: 50px;
     padding-bottom: 50px;
@@ -94,7 +94,7 @@ img {
     }
 }
 
-.__dhiwise1734179940637 .gift-guide {
+.myherobanner .gift-guide {
     margin-top: 348px;
     padding-left: 16px;
     padding-right: 16px;
@@ -111,14 +111,14 @@ img {
     }
 }
 
-.__dhiwise1734179940637 .gift-guide__column {
+.myherobanner .gift-guide__column {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
-.__dhiwise1734179940637 .gift-guide__title {
+.myherobanner .gift-guide__title {
     color: var(--black_900) !important;
     font-size: 70px;
     font-weight: 500;
@@ -128,7 +128,7 @@ img {
     }
 }
 
-.__dhiwise1734179940637 .gift-guide__description {
+.myherobanner .gift-guide__description {
     color: var(--black_900) !important;
     margin-top: 32px;
     font-size: 20px;
@@ -141,7 +141,7 @@ img {
     }
 }
 
-.__dhiwise1734179940637 .gift-guide__button {
+.myherobanner .gift-guide__button {
     color: var(--white_a700);
     margin-top: 50px;
     padding-left: 34px;
@@ -160,7 +160,7 @@ img {
     }
 }
 
-.__dhiwise1734179940637 .right-icon-wrapper {
+.myherobanner .right-icon-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,7 +168,7 @@ img {
     height: 1px;
 }
 
-.__dhiwise1734179940637 .line-15 {
+.myherobanner .line-15 {
     height: 1px;
     margin-top: 12px;
     margin-bottom: 12px;
