@@ -266,7 +266,7 @@ img {
 .color-selector {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    width: 100%;
     gap: 5px;
 }
 
@@ -275,7 +275,6 @@ img {
     color: #333;
 }
 
-/* Color option container */
 .color-options {
     display: flex;
     border: 1px solid #ccc;
@@ -301,9 +300,78 @@ img {
     background-color: black;
 }
 
-/* Highlight for the selected option */
 .color-option.selected {
     border-left: 4px solid blue;
     color: black;
     background-color: white;
+}
+
+
+/* 
+ */
+/*  */
+
+/* Container Styling */
+.size-selector {
+    font-family: Arial, sans-serif;
+    max-width: 200px;
+    background-color: #e6e6e6;
+    /* Grey background */
+    padding: 10px;
+}
+
+.size-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Dropdown Styling */
+.dropdown {
+    border: 1px solid #333;
+    position: relative;
+    background-color: white;
+}
+
+.dropdown-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 10px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-icon {
+    font-size: 12px;
+}
+
+/* Dropdown List */
+.dropdown-list {
+    display: none;
+    /* Hidden by default */
+    border-top: 1px solid #333;
+    position: absolute;
+    left: 0;
+    right: 0;
+    background-color: white;
+    z-index: 10;
+    list-style: none;
+}
+
+.dropdown-list li {
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.dropdown-list li:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show dropdown when active */
+.dropdown.open .dropdown-list {
+    display: block;
 }

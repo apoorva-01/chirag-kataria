@@ -49,47 +49,63 @@
   </div>
 
 
+  <div class="size-selector">
+    <label for="size-dropdown" class="size-label">Size</label>
+    <div class="dropdown">
+      <div class="dropdown-header">
+        <span>Choose your size</span>
+        <span class="dropdown-icon">&#x25B2;</span>
+      </div>
+      <ul class="dropdown-list">
+        <li>XS</li>
+        <li>S</li>
+        <li>M</li>
+      </ul>
+    </div>
+  </div>
+
+
   <!-- product color options section -->
   {% comment %} {% assign current_product = product %}
-            <p class="color-selection__title">
-        {{ section.settings.color }} 
-            White
-          </p>
-          <div class="color-selection__options">
-            {% for variant in current_product.variants %}
-              {% if variant.available %}
-                <div class="options__{{ variant.title | handleize }}">
-                  <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                    <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
-                    <p class="options__{{ variant.title | handleize }}">
-                      {{ variant.title }} 
-                      Blue
-                    </p>
+                    <p class="color-selection__title">
+                {{ section.settings.color }} 
+                    White
+                  </p>
+                  <div class="color-selection__options">
+                    {% for variant in current_product.variants %}
+                      {% if variant.available %}
+                        <div class="options__{{ variant.title | handleize }}">
+                          <div class="{{ variant.title | handleize }}__line-text-wrapper">
+                            <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
+                            <p class="options__{{ variant.title | handleize }}">
+                              {{ variant.title }} 
+                              Blue
+                            </p>
+                          </div>
+                          <div class="options__line"></div>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
                   </div>
-                  <div class="options__line"></div>
-                </div>
-              {% endif %}
-            {% endfor %}
-          </div>
-    </div> {% endcomment %}
+        </div> {% endcomment %}
 
 
   <!-- product size selection section -->
   {% comment %} {% if product.options_with_values.size > 0 %}
-              <div class="product-details__size-selection">
-                <p class="color-selection__title">
-                  {{ 'products.product.size' | t }}
-                </p>
-                <select
-                  name="size"
-                  style="background-image: url({{ 'defaultNoData.png' | file_url }})"
-                  class="size-selection__dropdown">
-                  {% for value in product.options_with_values.first.values %}
-                    <option value="{{ value | escape }}">{{ value }}</option>
-                  {% endfor %}
-                </select>
-              </div>
-    {% endif %} {% endcomment %}
+                      <div class="product-details__size-selection">
+                        <p class="color-selection__title">
+                          {{ 'products.product.size' | t }}
+                        </p>
+                        <select
+                          name="size"
+                          style="background-image: url({{ 'defaultNoData.png' | file_url }})"
+                          class="size-selection__dropdown">
+                          {% for value in product.options_with_values.first.values %}
+                            <option value="{{ value | escape }}">{{ value }}</option>
+                          {% endfor %}
+                        </select>
+                      </div>
+        {% endif %} {% endcomment %}
   <!-- add to cart button section -->
   <button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
     <span>
