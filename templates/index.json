@@ -1,6 +1,16 @@
 {
   "sections": {
    "myheader": {      "type": "myheader"    } ,
+   "myherobanner": {
+    "type": "myherobanner",
+    "settings": {
+      "background_image": "{{ 'img_group_1.svg' | file_url }}",
+      "thegiftguide": "The Gift Guide",
+      "description": "Discover Joy: Your Ultimate Holiday Gift Destination. Explore our curated selection and find the perfect gifts to delight your loved ones this holiday season.",
+      "button_text": "Shop Now",
+      "button_link": "/collections/all"
+
+    }},
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -202,6 +212,7 @@
   },
   "order": [
     "myheader",
+    "myherobanner",
     "image_banner",
     "rich_text",
     "featured_collection",

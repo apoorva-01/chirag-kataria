@@ -382,6 +382,17 @@
         "user_three": "user_three"
       }
     },
+    "myherobanner":{
+      "name": "Hero Banner",
+      "settings": {
+        "button_link": "Button Link",
+        "button_text": "Button Text",
+        "description": "Description",
+        "thegiftguide": "Title", 
+        "background_image": "Background Image"
+      },
+      "presets": {"name": "Hero Banner" }
+    },
   "all": {
     "animation": {
       "content": "Animations",
