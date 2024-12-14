@@ -58,6 +58,9 @@
         "column6"
       ]
     },
+    "myproductfeature":{
+      "type": "myproductfeature",      "settings": {        "product": ""      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -262,6 +265,7 @@
     "myherobanner",
     "myherofooter",
     "myproducts",
+    "myproductfeature",
     "image_banner",
     "rich_text",
     "featured_collection",
