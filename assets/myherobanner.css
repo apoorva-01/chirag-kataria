@@ -121,7 +121,7 @@ img {
 .myherobanner .gift-guide__title {
     color: var(--black_900) !important;
     font-size: 70px;
-    font-weight: 700;
+    font-weight: 550;
 
     @media only screen and (max-width: 1050px) {
         font-size: 48px;
@@ -151,6 +151,7 @@ img {
     gap: 28px;
     background-color: var(--black_900);
     text-align: center;
+    text-decoration: none;
     height: 50px;
     min-width: 220px;
 
