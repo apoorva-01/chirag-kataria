@@ -382,20 +382,24 @@
         "user_three": "user_three"
       }
     },
-    "myherobanner":{
+    "myherobanner": {
       "name": "MyHeroBanner",
-      "presets": {"name": "MyHeroBanner" },
+      "presets": {
+        "name": "MyHeroBanner"
+      },
       "settings": {
         "button_link": "Button Link",
         "button_text": "Button Text",
         "description": "Description",
-        "thegiftguide": "Title", 
+        "thegiftguide": "Title",
         "background_image": "Background Image"
       }
     },
-    "myherofooter":{
+    "myherofooter": {
       "name": "MyHeroFooter",
-      "presets": {"name": "MyHeroFooter" },
+      "presets": {
+        "name": "MyHeroFooter"
+      },
       "settings": {
         "text": {
           "label": "Announcement Text"
@@ -404,7 +408,24 @@
           "label": "Background Color"
         },
         "text_color": {
-            "label": "Text Color"
+          "label": "Text Color"
+        }
+      }
+    },
+    "myproducts": {
+      "name": "MyProducts",
+      "presets": {
+        "name": "MyProducts"
+      },
+      "settings": {
+        "tissovisonin": "tissovisonin"
+      },
+      "blocks": {
+        "column": {
+          "name": "gridplus_one",
+          "settings": {
+            "image_822_one": "image822_one"
+          }
         }
       }
     },
