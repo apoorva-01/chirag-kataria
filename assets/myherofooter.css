@@ -65,7 +65,6 @@ img {
 }
 
 .myherofooter {
-    background-color: var(--gray_100);
     width: 100%;
     display: flex;
     justify-content: center;
@@ -92,5 +91,4 @@ img {
 .myherofooter .rowprice__description {
     font-weight: 400;
     font-size: 16px;
-    color: var(--black_900) !important;
 }
