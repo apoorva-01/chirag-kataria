@@ -1,7 +1,7 @@
 {{ 'myheader.css' | asset_url | stylesheet_tag }}
 <!-- header section -->
 <header class="myheader">
-  <div class="rowfindtheideal">
+  <div class="rowheadertext">
     <div class="rowuser_one">
       {% if section.settings.user_one == blank %}
         {% render 'img_user', class: 'user_one' %}
@@ -28,7 +28,7 @@
         >
       {% endif %}
     </div>
-    <p class="findtheideal">{{ section.settings.findtheideal }}</p>
+    <p class="headertext">{{ section.settings.headertext }}</p>
 
     <button class="flex-row-center-center choose_gift" id="chooseGiftBtn">
       <span> {{ 'sections.myheader.lbl_choose_gift' | t }}</span>
@@ -45,4 +45,4 @@
   });
 </script>
 
-{% schema %}  {    "name": "t:sections.myheader.name",    "tag": "header",    "settings": [      {        "type": "text",        "id": "findtheideal",        "label": "t:sections.myheader.settings.findtheideal",        "default": "Find the ideal gift for your loved ones."      }, {        "type": "image_picker",        "id": "user_one",        "label": "t:sections.myheader.settings.user_one"      },      {        "type": "image_picker",        "id": "user_three",        "label": "t:sections.myheader.settings.user_three"      }    ], "presets": [      {        "name": "t:sections.myheader.presets.name",        "blocks": []      }    ]  }{% endschema %}
+{% schema %}  {    "name": "t:sections.myheader.name",    "tag": "header",    "settings": [      {        "type": "text",        "id": "headertext",        "label": "t:sections.myheader.settings.headertext",        "default": "Find the ideal gift for your loved ones."      }, {        "type": "image_picker",        "id": "user_one",        "label": "t:sections.myheader.settings.user_one"      },      {        "type": "image_picker",        "id": "user_three",        "label": "t:sections.myheader.settings.user_three"      }    ], "presets": [      {        "name": "t:sections.myheader.presets.name",        "blocks": []      }    ]  }{% endschema %}

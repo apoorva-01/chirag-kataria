@@ -377,7 +377,7 @@
         "name": "MyHeader"
       },
       "settings": {
-        "findtheideal": "findtheideal",
+        "headertext": "headertext",
         "user_one": "user_one",
         "user_three": "user_three"
       }

@@ -82,7 +82,7 @@ img {
     align-items: center;
 }
 
-.myheader .rowfindtheideal {
+.myheader .rowheadertext {
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -104,7 +104,7 @@ img {
     display: flex;
 }
 
-.myheader .findtheideal {
+.myheader .headertext {
     color: var(--black_900) !important;
     font-size: 16px;
     font-weight: 400;
