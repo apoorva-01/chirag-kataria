@@ -45,16 +45,10 @@
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        // Get the Add to Cart button
         var addToCartButton = document.getElementById('AddToCart');
-
-        // Attach a click event listener to the Add to Cart button
         addToCartButton.addEventListener('click', function () {
-            // Get the selected or first available variant ID
-            var variantId = {{ product.selected_or_first_available_variant.id }
-        };
+        var variantId = {{ product.selected_or_first_available_variant.id }};
         var quantity = 1; // Set the quantity to 1
-
         // Send a POST request to add the item to the cart
         fetch('/cart/add.js', {
             method: 'POST',
@@ -69,14 +63,9 @@
                     },
                 ],
             }),
-        })
-            .then((response) => response.json())
-            .then((data) => {
+        }).then((response) => response.json()).then((data) => {
                 console.log('Product added to cart:', data);
-                // You can add additional logic here, such as updating the cart count
-                // or showing a success message
-            })
-            .catch((error) => {
+            }).catch((error) => {
                 console.error('Error:', error);
             });
     });
