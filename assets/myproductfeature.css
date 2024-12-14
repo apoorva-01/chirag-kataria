@@ -261,72 +261,12 @@ img {
     font-weight: 400;
 }
 
-/* 
- */
-.__dhiwise1734211232251.product-details__color-selection {
-    gap: 2px;
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.__dhiwise1734211232251 .color-selection__title {
-    color: var(--blue_gray_900) !important;
-    font-size: 14px;
-    font-weight: 400;
-}
-
-.__dhiwise1734211232251 .color-selection__options {
-    gap: 9px;
-    align-self: stretch;
-    display: flex;
-    align-items: flex-start;
-    border: 0.5px solid var(--black_900);
-}
-
-.__dhiwise1734211232251 .options__white {
-    align-self: center;
-    width: 52%;
-    display: flex;
-    align-items: center;
-}
-
-.__dhiwise1734211232251 .white__line-text-wrapper {
-    gap: 11px;
-    flex: 1;
-    display: flex;
-    align-items: center;
-}
-
-.__dhiwise1734211232251 .line-text-wrapper__line {
-    height: 40px;
-    background-color: var(--white_a700);
-    width: 4px;
-    border: 5.81px solid var(--black_900);
-}
-
-.__dhiwise1734211232251 .options__line {
-    height: 38px;
-    background-color: var(--black_900);
-    width: 4px;
-    border: 4.84px solid var(--black_900);
-}
-
-.__dhiwise1734211232251 .options__black {
-    color: var(--black_900) !important;
-    letter-spacing: -0.36px;
-    text-transform: capitalize;
-    font-size: 18px;
-    font-weight: 400;
-}
-
-/*  */
-/* Container styling */
+/* Color Stying*/
+/* */
 .color-selector {
-    font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 5px;
 }
 
