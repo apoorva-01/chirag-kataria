@@ -388,11 +388,21 @@
         "name": "MyHeroBanner"
       },
       "settings": {
-        "button_link": "Button Link",
-        "button_text": "Button Text",
-        "description": "Description",
-        "thegiftguide": "Title",
-        "background_image": "Background Image"
+        "button_text": {
+          "label": "Button Text"
+        },
+        "button_link": {
+          "label": "Button Link"
+        },
+        "description": {
+          "label": "Description"
+        },
+        "thegiftguide": {
+          "label": "Title"
+        },
+        "background_image": {
+          "label": "Background Image"
+        }
       }
     },
     "myherofooter": {
