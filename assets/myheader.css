@@ -99,7 +99,7 @@ img {
     }
 }
 
-.myheader .rowuser_one {
+.myheader .rowlogo_part_one {
     gap: 12px;
     display: flex;
 }
@@ -145,13 +145,13 @@ img {
     object-fit: contain;
 }
 
-.myheader .user_one {
+.myheader .logo_part_one {
     height: 18px;
     width: 46%;
     object-fit: contain;
 }
 
-.myheader .user_three {
+.myheader .logo_part_two {
     width: 54%;
     height: 18px;
     object-fit: contain;

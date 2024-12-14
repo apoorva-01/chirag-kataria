@@ -378,8 +378,8 @@
       },
       "settings": {
         "headertext": "headertext",
-        "user_one": "user_one",
-        "user_three": "user_three"
+        "logo_part_one": "logo_part_one",
+        "logo_part_two": "logo_part_two"
       }
     },
     "myherobanner": {
