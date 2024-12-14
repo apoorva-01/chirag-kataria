@@ -1,16 +1,121 @@
 {{ 'myproducts.css' | asset_url | stylesheet_tag }}
 {% assign collection = collections[section.settings.collection] %}
 
-<!-- gallery section --><div class="myproducts __dhiwise1734193007136">  <div class="column">    <p class="column__title">      {{ section.settings.tissovisonin }}    </p>    <div class="column__grid">      
-    <div class="image-gallery">          <img            src="{{ product.featured_image | img_url: '432x444', crop: 'center' }}"            alt="{{ product.title | escape }}"      {%- for product in collection.products limit: section.settings.products_to_show -%}            width="432"            height="444"            loading="lazy"            class="image-gallery__image" />
+<!-- Gallery Section -->
+<div class="myproducts __dhiwise1734193007136">
+  <div class="column">
+    <p class="column__title">
+      {{ section.settings.tissovisonin }}
+    </p>
+    <div class="column__grid">
+      <div class="image-gallery">
+        {%- for product in collection.products limit: section.settings.products_to_show -%}
+          <div class="image-gallery__item">
+            <img
+              src="{{ product.featured_image | img_url: '432x444', crop: 'center' }}"
+              alt="{{ product.title | escape }}"
+              width="432"
+              height="444"
+              loading="lazy"
+              class="image-gallery__image"
+            >
+            {% render 'img_plus', class: 'image-gallery__add-icon' %}
+            <div class="image-gallery__overlay">
+              <h3>{{ product.title }}</h3>
+              <p>{{ product.price | money }}</p>
+              <form method="post" action="/cart/add">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <input type="submit" value="Add to cart" class="btn">
+              </form>
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </div>
+</div>
 
+{% schema %}
+{
+  "name": "t:sections.myproducts.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tissovisonin",
+      "label": "t:sections.myproducts.settings.tissovisonin",
+      "default": "Tisso vision in the wild"
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "default": 6,
+      "label": "Number of products to show"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.myproducts.presets.name"
+    }
+  ]
+}
+{% endschema %}
 
-    {% render 'img_plus', class: "image-gallery__add-icon" %}          <div class="image-gallery__overlay">            <h3>{{ product.title }}</h3>            <p>{{ product.price | money }}</p>            <form method="post" action="/cart/add">              <input type="hidden" name="id" value="{{ product.variants.first.id }}" />              <input type="submit" value="Add to cart" class="btn" />            </form>          </div>        </div>      {%- endfor -%}    </div>  </div>
-</div>{% schema %}{  "name": "t:sections.myproducts.name",  "tag": "section",  "class": "section",  "settings": [    {      "type": "text",      "id": "tissovisonin",      "label": "t:sections.myproducts.settings.tissovisonin",      "default": "Tisso vison in the wild"    },   {      "type": "collection",      "id": "collection",      "label": "Collection"    },    {      "type": "range",      "id": "products_to_show",      "min": 1,      "max": 12,      "step": 1,      "default": 6,      "label": "Number of products to show"    } ],  "presets": [    {      "name": "t:sections.myproducts.presets.name"    }  ]}{% endschema %}{% javascript %}document.addEventListener('DOMContentLoaded', function() {  const galleryItems = document.querySelectorAll('.image-gallery');  galleryItems.forEach(item => {    item.addEventListener('mouseenter', function() {      this.querySelector('.image-gallery__overlay').style.display = 'flex';    });    item.addEventListener('mouseleave', function() {      this.querySelector('.image-gallery__overlay').style.display = 'none';    });  });});{% endjavascript %}
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function () {
+    const galleryItems = document.querySelectorAll('.image-gallery__item');
+    galleryItems.forEach((item) => {
+      item.addEventListener('mouseenter', function () {
+        this.querySelector('.image-gallery__overlay').style.display = 'flex';
+      });
+      item.addEventListener('mouseleave', function () {
+        this.querySelector('.image-gallery__overlay').style.display = 'none';
+      });
+    });
+  });
+{% endjavascript %}
 
-{% stylesheet %}.image-gallery__overlay {  display: none;  position: absolute;  top: 0;  left: 0;  right: 0;  bottom: 0;  background-color: rgba(0,0,0,0.7);  color: white;  flex-direction: column;  justify-content: center;  align-items: center;  text-align: center;}
+{% stylesheet %}
+  .image-gallery__overlay {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
 
-.image-gallery {position: relative;}
+  .image-gallery {
+    position: relative;
+  }
 
-.btn {padding: 10px 20px;  border: none;  cursor: pointer;  margin-top: 10px;  color: black;  background-color: white;}
+  .image-gallery__item {
+    position: relative;
+    margin: 10px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    color: black;
+    background-color: white;
+  }
 {% endstylesheet %}
