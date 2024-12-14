@@ -43,9 +43,12 @@
 
 .__dhiwise1734193007136 .column__grid {
     align-self: stretch;
-    display: grid;
+    /* display: grid;
     gap: 20px;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr)); */
+    display: grid !important;
+    gap: 20px;
+    grid-template-columns: repeat(3, 1fr) !important;
 
     @media only screen and (max-width: 1050px) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -54,6 +57,7 @@
     @media only screen and (max-width: 550px) {
         grid-template-columns: repeat(1, minmax(0, 1fr));
     }
+
 }
 
 .__dhiwise1734193007136 .image-gallery {
