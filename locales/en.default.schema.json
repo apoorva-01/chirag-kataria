@@ -383,18 +383,19 @@
       }
     },
     "myherobanner":{
-      "name": "Hero Banner",
+      "name": "MyHeroBanner",
+      "presets": {"name": "MyHeroBanner" },
       "settings": {
         "button_link": "Button Link",
         "button_text": "Button Text",
         "description": "Description",
         "thegiftguide": "Title", 
         "background_image": "Background Image"
-      },
-      "presets": {"name": "Hero Banner" }
+      }
     },
     "myherofooter":{
-      "name": "Announcement Bar",
+      "name": "MyHeroFooter",
+      "presets": {"name": "MyHeroFooter" },
       "settings": {
         "text": {
           "label": "Announcement Text"
