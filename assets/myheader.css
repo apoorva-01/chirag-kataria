@@ -112,6 +112,7 @@ img {
 
 .myheader .choose_gift {
     color: var(--black_900);
+    border: none;
     padding-left: 34px;
     padding-right: 22px;
     text-transform: uppercase;
