@@ -3,27 +3,27 @@ img {
     height: auto;
 }
 
-.__dhiwise1734191551691 button,
-.__dhiwise1734191551691 input,
-.__dhiwise1734191551691 optgroup,
-.__dhiwise1734191551691 select,
-.__dhiwise1734191551691 textarea {
+.myherofooter button,
+.myherofooter input,
+.myherofooter optgroup,
+.myherofooter select,
+.myherofooter textarea {
     margin: 0;
     padding: 0;
 }
 
-.__dhiwise1734191551691 h1,
-.__dhiwise1734191551691 h2,
-.__dhiwise1734191551691 h3,
-.__dhiwise1734191551691 h4,
-.__dhiwise1734191551691 h5,
-.__dhiwise1734191551691 h6,
-.__dhiwise1734191551691 hr,
-.__dhiwise1734191551691 p {
+.myherofooter h1,
+.myherofooter h2,
+.myherofooter h3,
+.myherofooter h4,
+.myherofooter h5,
+.myherofooter h6,
+.myherofooter hr,
+.myherofooter p {
     margin: 0;
 }
 
-.__dhiwise1734191551691 {
+.myherofooter {
 
     [type="text"],
     input:where(:not([type])),
@@ -64,14 +64,14 @@ img {
     --gray_100: #f4f4f4;
 }
 
-.__dhiwise1734191551691.myherofooter {
+.myherofooter {
     background-color: var(--gray_100);
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
-.__dhiwise1734191551691 .rowprice {
+.myherofooter .rowprice {
     padding-left: 56px;
     padding-right: 56px;
     width: 100%;
@@ -89,7 +89,7 @@ img {
 
 
 
-.__dhiwise1734191551691 .rowprice__description {
+.myherofooter .rowprice__description {
     font-weight: 400;
     font-size: 16px;
     color: var(--black_900) !important;
