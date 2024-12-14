@@ -34,58 +34,58 @@
     </div>
   </div>
   {{ product.variants.size }}
-  {{ product.options_with_values.size }}
+{{ product.options_with_values.size }}
   <!-- product color options section -->
-  {% if product.variants.size > 1 %}
-    <div class="product-details__color-selection">
-      <p class="color-selection__title">{{ 'products.product.color' | t }}</p>
-
-      <div class="color-selection__options">
-        {% for variant in product.variants %}
-          {% if variant.available %}
-            <div class="options__{{ variant.title | handleize }}">
-              <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                <div class="line-text-wrapper__line" style="background-color: {{ variant.title | handleize }}"></div>
-                <p class="options__{{ variant.title | handleize }}">
-                  {{ variant.title }}
-                </p>
-              </div>
-              <div class="options__line"></div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-
-    </div>
-  {% endif %}
-  <!-- product size selection section -->
-  {% if product.options_with_values.size > 0 %}
-    <div class="product-details__size-selection">
-      <p class="color-selection__title">
-        {{ 'products.product.size' | t }}
-      </p>
-      <select
-        name="size"
-        style="background-image: url({{ 'defaultNoData.png' | file_url }})"
-        class="size-selection__dropdown">
-        {% for value in product.options_with_values.first.values %}
-          <option value="{{ value | escape }}">{{ value }}</option>
-        {% endfor %}
-      </select>
-    </div>
-  {% endif %}
-  <!-- add to cart button section -->
-  <button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
-    <span>
-      {{
-        'products.product.add_to_cart' | t }}</span>
-    <div class="right-icon-wrapper">
-      {% render 'img_line_15'
-        , class: "line-15" %}
-    </div>
-  </button>
+  {% assign current_product = product %}
+    <p class="color-selection__title">
+      {% comment %} {{ section.settings.color }} {% endcomment %}
+    White
+  </p>
+  <div class="color-selection__options">
+    {% for variant in current_product.variants %}
+      {% if variant.available %}
+        <div class="options__{{ variant.title | handleize }}">
+          <div class="{{ variant.title | handleize }}__line-text-wrapper">
+            <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
+            <p class="options__{{ variant.title | handleize }}">
+                {% comment %} {{ variant.title }} {% endcomment %}
+              Blue
+            </p>
+          </div>
+          <div class="options__line"></div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
 </div>
-<script>
+
+
+<!-- product size selection section -->
+{% if product.options_with_values.size > 0 %}
+  <div class="product-details__size-selection">
+    <p class="color-selection__title">
+      {{ 'products.product.size' | t }}
+    </p>
+    <select
+      name="size"
+      style="background-image: url({{ 'defaultNoData.png' | file_url }})"
+      class="size-selection__dropdown">
+      {% for value in product.options_with_values.first.values %}
+        <option value="{{ value | escape }}">{{ value }}</option>
+      {% endfor %}
+    </select>
+  </div>
+{% endif %}
+<!-- add to cart button section -->
+<button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
+  <span>
+    {{
+      'products.product.add_to_cart' | t }}</span>
+  <div class="right-icon-wrapper">
+    {% render 'img_line_15'
+      , class: "line-15" %}
+  </div>
+</button></div><script>
     document.addEventListener('DOMContentLoaded', function () {
         var addToCartButton = document.getElementById('AddToCart');
         addToCartButton.addEventListener('click', function () {
@@ -112,28 +112,25 @@
             });
     });
   });
-</script>
-
-{% schema %}
-  {
-    "name": "t:sections.myproductfeature.name",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "product",
-        "id": "product",
-        "label": "t:sections.myproductfeature.settings.product"
-      },
-      {
-        "type": "image_picker",
-        "id": "image_846_one",
-        "label": "t:sections.myproductfeature.settings.image_846_one"
-      }
-    ],
-    "presets": [
-      {
-        "name": "t:sections.myproductfeature.presets.name"
-      }
-    ]
-  }
-{% endschema %}
+</script>{% schema %}
+{
+  "name": "t:sections.myproductfeature.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.myproductfeature.settings.product"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_846_one",
+      "label": "t:sections.myproductfeature.settings.image_846_one"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.myproductfeature.presets.name"
+    }
+  ]
+}{% endschema %}
