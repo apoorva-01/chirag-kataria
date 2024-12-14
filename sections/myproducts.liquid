@@ -105,11 +105,25 @@
     position: relative;
   }
 
-  .image-gallery__item {
+  /* .image-gallery__item {
     position: relative;
     margin: 10px;
+  } */
+
+  .image-gallery__item {
+    display: block; /* Ensure proper alignment in the grid */
   }
 
+  .image-gallery__image {
+    width: 100%; /* Images take the full width of their container */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensures consistent appearance */
+  }
+  .column__grid,
+  .image-gallery,
+  .image-gallery__item {
+    border: 1px solid red; /* Debugging only */
+  }
   .btn {
     padding: 10px 20px;
     border: none;
