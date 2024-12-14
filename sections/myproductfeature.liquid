@@ -13,7 +13,8 @@
   <div class="product-details__description">
     <div class="description__image-text-wrapper">
       <img
-        src="{% if section.settings.image_846_one == blank %} {{ 'img_image_846.png' | file_url }} {% else %}{{ section.settings.image_846_one | image_url}}{% endif %}"
+        src="{% if section.settings.image_846_one == blank %} {{ 'img_image_846.png' | file_url }} 
+    {% else %}{{ section.settings.image_846_one | image_url}}{% endif %}"
         alt="{{ product.title }}"
         width="120"
         height="140"
@@ -32,6 +33,8 @@
       </div>
     </div>
   </div>
+  {{ product.variants.size }}
+  {{ product.options_with_values.size }}
   <!-- product color options section -->
   {% if product.variants.size > 1 %}
     <div class="product-details__color-selection">
