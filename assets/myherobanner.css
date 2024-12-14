@@ -121,7 +121,7 @@ img {
 .myherobanner .gift-guide__title {
     color: var(--black_900) !important;
     font-size: 70px;
-    font-weight: 550;
+    font-weight: 500;
 
     @media only screen and (max-width: 1050px) {
         font-size: 48px;
