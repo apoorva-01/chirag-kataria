@@ -1,47 +1,86 @@
 {{ 'myproductfeature.css' | asset_url | stylesheet_tag }}
 
 {% assign product = all_products[section.settings.product] %}
-<div class="product-details __dhiwise1734208892622"> {% if product.featured_image %}
-    {{ product.featured_image | image_url: width: 500 | image_tag: class:"product-details__image", loading: "lazy" }}
-    {% else %} {% render 'img_group_1000008134', class: "product-details__image" %}
-    {% endif %}
+  <div class="product-details __dhiwise1734208892622">
+  {% if product.featured_image %}
+    {{ product.featured_image | image_url: width: 500 | image_tag: class: "product-details__image", loading: "lazy" }}
+  {% else %}
+    {% render 'img_group_1000008134'
+      , class: "product-details__image" %}
+  {% endif %}
 
-    <!-- product details section -->
-    <div class="product-details__description">
-        <div class="description__image-text-wrapper"> <img
-                src="{% if section.settings.image_846_one == blank %} {{ 'img_image_846.png' | file_url }} {% else %}{{ section.settings.image_846_one | image_url}}{% endif %}"
-                alt="{{ product.title }}" width="120" height="140" loading="lazy" class="image-text-wrapper__image" />
-            <div class="image-text-wrapper__text">
-                <p class="text__title"> {{ product.title }} </p>
-                <p class="text__price"> {{ product.price | money }} </p>
-                <p class="text__description"> {{ product.description | strip_html | truncatewords: 30 }} </p>
-            </div>
-        </div>
-    </div> <!-- product color options section --> {% if product.variants.size > 1 %}
+  <!-- product details section -->
+  <div class="product-details__description">
+    <div class="description__image-text-wrapper">
+      <img
+        src="{% if section.settings.image_846_one == blank %} {{ 'img_image_846.png' | file_url }} {% else %}{{ section.settings.image_846_one | image_url}}{% endif %}"
+        alt="{{ product.title }}"
+        width="120"
+        height="140"
+        loading="lazy"
+        class="image-text-wrapper__image" />
+      <div class="image-text-wrapper__text">
+        <p class="text__title">
+          {{ product.title }}
+        </p>
+        <p class="text__price">
+          {{ product.price | money }}
+        </p>
+        <p class="text__description">
+          {{ product.description | strip_html | truncatewords: 30 }}
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- product color options section -->
+  {% if product.variants.size > 1 %}
     <div class="product-details__color-selection">
-        <p class="color-selection__title">{{ 'products.product.color' | t }}</p>
+      <p class="color-selection__title">{{ 'products.product.color' | t }}</p>
 
-        <div class="color-selection__options"> {% for variant in product.variants %} {% if variant.available %} <div
-                class="options__{{ variant.title | handleize }}">
-                <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                    <div class="line-text-wrapper__line" style="background-color: {{ variant.title | handleize }}">
-                    </div>
-                    <p class="options__{{ variant.title | handleize }}"> {{ variant.title }} </p>
-                </div>
-                <div class="options__line"></div>
-            </div> {% endif %} {% endfor %} </div>
+      <div class="color-selection__options">
+        {% for variant in product.variants %}
+          {% if variant.available %}
+            <div class="options__{{ variant.title | handleize }}">
+              <div class="{{ variant.title | handleize }}__line-text-wrapper">
+                <div class="line-text-wrapper__line" style="background-color: {{ variant.title | handleize }}"></div>
+                <p class="options__{{ variant.title | handleize }}">
+                  {{ variant.title }}
+                </p>
+              </div>
+              <div class="options__line"></div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
 
-    </div> {% endif %} <!-- product size selection section --> {% if product.options_with_values.size > 0 %} <div
-        class="product-details__size-selection">
-        <p class="color-selection__title"> {{ 'products.product.size' | t }} </p> <select name="size"
-            style="background-image: url({{ 'defaultNoData.png' | file_url }})" class="size-selection__dropdown">
-            {% for value in product.options_with_values.first.values %} <option value="{{ value | escape }}">{{ value }}
-            </option> {% endfor %} </select>
-    </div> {% endif %} <!-- add to cart button section --> <button
-        class="flex-row-center-center product-details__add-to-cart" id="AddToCart"> <span> {{
-            'products.product.add_to_cart' | t }}</span>
-        <div class="right-icon-wrapper"> {% render 'img_line_15', class: "line-15" %} </div>
-    </button>
+    </div>
+  {% endif %}
+  <!-- product size selection section -->
+  {% if product.options_with_values.size > 0 %}
+    <div class="product-details__size-selection">
+      <p class="color-selection__title">
+        {{ 'products.product.size' | t }}
+      </p>
+      <select
+        name="size"
+        style="background-image: url({{ 'defaultNoData.png' | file_url }})"
+        class="size-selection__dropdown">
+        {% for value in product.options_with_values.first.values %}
+          <option value="{{ value | escape }}">{{ value }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  {% endif %}
+  <!-- add to cart button section -->
+  <button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
+    <span>
+      {{
+        'products.product.add_to_cart' | t }}</span>
+    <div class="right-icon-wrapper">
+      {% render 'img_line_15'
+        , class: "line-15" %}
+    </div>
+  </button>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -72,7 +111,26 @@
   });
 </script>
 
-{% schema %}{ "name": "t:sections.myproductfeature.name", "tag": "section", "settings": [ { "type": "product", "id":
-"product", "label": "t:sections.myproductfeature.settings.product" }, { "type": "image_picker", "id": "image_846_one",
-"label": "t:sections.myproductfeature.settings.image_846_one" }], "presets": [ { "name":
-"t:sections.myproductfeature.presets.name" } ]}
+{% schema %}
+  {
+    "name": "t:sections.myproductfeature.name",
+    "tag": "section",
+    "settings": [
+      {
+        "type": "product",
+        "id": "product",
+        "label": "t:sections.myproductfeature.settings.product"
+      },
+      {
+        "type": "image_picker",
+        "id": "image_846_one",
+        "label": "t:sections.myproductfeature.settings.image_846_one"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.myproductfeature.presets.name"
+      }
+    ]
+  }
+{% endschema %}
