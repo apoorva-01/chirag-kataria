@@ -440,9 +440,9 @@
       }
     },
     "myproductfeature": {
-      "name": "Product Feature",
+      "name": "MyProductFeature",
       "presets": {
-        "name": "Product Feature"
+        "name": "MyProductFeature"
       },
       "settings": {
         "product": "Select Product",

@@ -1,7 +1,7 @@
 {{ 'myproductfeature.css' | asset_url | stylesheet_tag }}
 
 {% assign product = all_products[section.settings.product] %}
-  <div class="product-details __dhiwise1734208892622">
+  <div class="product-details">
   {% if product.featured_image %}
     {{ product.featured_image | image_url: width: 500 | image_tag: class: "product-details__image", loading: "lazy" }}
   {% else %}
