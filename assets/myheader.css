@@ -72,7 +72,7 @@ img {
     justify-content: center;
 }
 
-.myheader.header {
+.myheader {
     padding-top: 10px;
     padding-bottom: 10px;
     display: flex;
