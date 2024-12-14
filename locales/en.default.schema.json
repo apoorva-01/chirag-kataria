@@ -393,6 +393,20 @@
       },
       "presets": {"name": "Hero Banner" }
     },
+    "myherofooter":{
+      "name": "Announcement Bar",
+      "settings": {
+        "text": {
+          "label": "Announcement Text"
+        },
+        "background_color": {
+          "label": "Background Color"
+        },
+        "text_color": {
+            "label": "Text Color"
+        }
+      }
+    },
   "all": {
     "animation": {
       "content": "Animations",

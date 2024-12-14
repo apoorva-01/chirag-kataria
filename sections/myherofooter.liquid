@@ -1,0 +1,42 @@
+{{ 'myherofooter.css' | asset_url | stylesheet_tag }}
+
+<div class="myherofooter __dhiwise1734191551691">
+  <div class="rowprice">
+    <p class="rowprice__description">{{ section.settings.text }}</p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "t:sections.myherofooter.name",
+  "tag": "section",
+  "class": "section",
+
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "t:sections.myherofooter.settings.text.label",
+      "default": "SUSTAINABLE, ETHICALLY MADE CLOTHES IN SIZES XXS TO 6XL"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "t:sections.myherofooter.settings.background_color.label",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "t:sections.myherofooter.settings.text_color.label",
+      "default": "#ffffff"
+    }
+  ],
+  "presets": [{ "name": "t:sections.myherofooter.presets.name" }]
+}
+{% endschema %}
+{% stylesheet %}
+  .myherofooter {  background-color: {{ section.settings.background_color }};  padding: 20px 0;}
+  .rowprice__description {  color: {{ section.settings.text_color }};  text-align: center;  font-size: 16px;  font-weight: bold;}
+{% endstylesheet %}
+{% javascript %}{% endjavascript %}
