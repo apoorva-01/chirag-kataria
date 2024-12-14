@@ -61,7 +61,7 @@ img {
 
 :root {
     --black_900: #000000;
-    --gray_100: #f4f4f4;
+    --white_a700: #ffffff;
     --yellow_500: #fff444;
 }
 
@@ -121,7 +121,7 @@ img {
 .myherobanner .gift-guide__title {
     color: var(--black_900) !important;
     font-size: 70px;
-    font-weight: 500;
+    font-weight: 700;
 
     @media only screen and (max-width: 1050px) {
         font-size: 48px;
