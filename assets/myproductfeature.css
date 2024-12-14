@@ -320,3 +320,50 @@ img {
     font-size: 18px;
     font-weight: 400;
 }
+
+/*  */
+/* Container styling */
+.color-selector {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.color-selector label {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Color option container */
+.color-options {
+    display: flex;
+    border: 1px solid #ccc;
+}
+
+.color-option {
+    flex: 1;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.color-option:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 0;
+    bottom: 10%;
+    width: 1px;
+    background-color: black;
+}
+
+/* Highlight for the selected option */
+.color-option.selected {
+    border-left: 4px solid blue;
+    color: black;
+    background-color: white;
+}
