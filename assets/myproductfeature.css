@@ -77,6 +77,9 @@ img {
 }
 
 .product-details {
+    position: fixed;
+    left: 50%;
+    top: 50%;
     width: 311px;
     height: 447px;
     background-color: var(--white_a700);
