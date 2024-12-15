@@ -23,7 +23,7 @@
 
 
           {% comment %} {% render 'product-modal' %} {% endcomment %}
-          <div id="productModal" class="product-modal">
+          <div id="modal-{{ product.id }}" class="product-modal">
             <div class="product-details ">
               <!-- product details section -->
               <div class="product-details__description __dhiwise1734259974781">
@@ -147,47 +147,27 @@
 {% javascript %}
   document.addEventListener('DOMContentLoaded', function() {
     const addIcons = document.querySelectorAll('.image-gallery__add-icon');
-    const productModal = document.getElementById('productModal');
-    const closeModalButton = document.getElementById('closeModal');
-    const modalContent = document.getElementById('modalContent');
 
-    addIcons.forEach((addIcon) => {
-      addIcon.addEventListener('click', function() {
-        console.log('Add icon clicked');
-        console.log(addIcon);
-
-// console.log('Image:', addIcon.getAttribute('dataimage'));
-// console.log('Title:', addIcon.getAttribute('datatitle'));
-// console.log('Price:', addIcon.getAttribute('dataprice'));
-// console.log('Description:', addIcon.getAttribute('datadescription'));
-
-// modalContent.innerHTML = `
-// <div class="product-details">
-
-
-// </div>
-// `;
-
-// Display the modal
-        productModal.style.display = 'block';
+    addIcons.forEach((icon) => {
+      icon.addEventListener('click', function() {
+        const modalId = icon.getAttribute('data-modal-id');
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
       });
     });
 
-// Close the modal when the close button is clicked
-    closeModalButton.addEventListener('click', function() {
-      productModal.style.display = 'none';
-    });
-
-// Close the modal if the user clicks outside the modal content
-    window.addEventListener('click', function(event) {
-      if (event.target === productModal) {
-        productModal.style.display = 'none';
-      }
+// Close modal when clicking outside or on the close button
+    const modals = document.querySelectorAll('.product-modal');
+    modals.forEach((modal) => {
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal || event.target.classList.contains('close-btn')) {
+          modal.style.display = 'none';
+        }
+      });
     });
   });
 {% endjavascript %}
 {% stylesheet %}
-  /* Modal background (overlay) */
   .product-modal {
     display: none;
     position: fixed;
