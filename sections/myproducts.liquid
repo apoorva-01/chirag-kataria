@@ -16,17 +16,11 @@
             width="432"
             height="444"
             loading="lazy"
-            class="image-gallery__image"
-          >
-          {% render 'img_plus', class: 'image-gallery__add-icon' %}
-          <div class="image-gallery__overlay">
-            <h3>{{ product.title }}</h3>
-            <p>{{ product.price | money }}</p>
-            <form method="post" action="/cart/add">
-              <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-              <input type="submit" value="Add to cart" class="btn">
-            </form>
-          </div>
+            class="image-gallery__image">
+          {% render 'img_plus'
+            , class: 'image-gallery__add-icon' %}
+
+
         </div>
       {%- endfor -%}
     </div>
@@ -34,54 +28,42 @@
 </div>
 
 {% schema %}
-{
-  "name": "t:sections.myproducts.name",
-  "tag": "section",
-  "class": "section",
-  "settings": [
-    {
-      "type": "text",
-      "id": "tissovisonin",
-      "label": "t:sections.myproducts.settings.tissovisonin",
-      "default": "Tisso vision in the wild"
-    },
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Collection"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 1,
-      "max": 12,
-      "step": 1,
-      "default": 6,
-      "label": "Number of products to show"
-    }
-  ],
-  "presets": [
-    {
-      "name": "t:sections.myproducts.presets.name"
-    }
-  ]
-}
+  {
+    "name": "t:sections.myproducts.name",
+    "tag": "section",
+    "class": "section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "tissovisonin",
+        "label": "t:sections.myproducts.settings.tissovisonin",
+        "default": "Tisso vision in the wild"
+      },
+      {
+        "type": "collection",
+        "id": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "range",
+        "id": "products_to_show",
+        "min": 1,
+        "max": 12,
+        "step": 1,
+        "default": 6,
+        "label": "Number of products to show"
+      }
+    ],
+    "presets": [
+      {
+        "name": "t:sections.myproducts.presets.name"
+      }
+    ]
+  }
 {% endschema %}
 
 {% javascript %}
-  document.addEventListener('DOMContentLoaded', function () {
-    const galleryItems = document.querySelectorAll('.image-gallery__item');
-    galleryItems.forEach((item) => {
-      item.addEventListener('mouseenter', function () {
-        this.querySelector('.image-gallery__overlay').style.display = 'flex';
-      });
-      item.addEventListener('mouseleave', function () {
-        this.querySelector('.image-gallery__overlay').style.display = 'none';
-      });
-    });
-  });
 {% endjavascript %}
-
 {% stylesheet %}
   .image-gallery__overlay {
     display: none;
@@ -111,7 +93,8 @@
   .column__grid,
   .image-gallery,
   .image-gallery__item {
-    border: 1px solid red; /* Debugging only */
+    border: 1px solid red;
+    /* Debugging only */
   }
   .btn {
     padding: 10px 20px;
