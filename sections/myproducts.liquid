@@ -17,21 +17,13 @@
             height="444"
             loading="lazy"
             class="image-gallery__image">
-          {% render 'img_plus'
-            , class: 'image-gallery__add-icon' %}
+          {% render 'img_plus', class: 'image-gallery__add-icon', data-title: product.title, data-price: product.price | money, data-description: product.description %}
+          {% render 'product-modal' %}
         </div>
       {%- endfor -%}
     </div>
-</div>
-  {% comment %} <!-- Modal structure -->
-                                                                      <div id="productModal" class="product-modal">
-                                                                        <div class="modal-content">
-                                                                          <span class="close-btn" id="closeModal">&times;</span>
-                                                                          <div id="modalContent"></div>
-                                                                        <!-- This will hold the modal content -->
-                                                                        </div>
-                                    </div> {% endcomment %}
-  {% render 'product-modal' %}
+  </div>
+
 </div>
 
 {% schema %}
@@ -79,53 +71,18 @@
     addIcons.forEach((addIcon) => {
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
-        const productItem = this.closest('.image-gallery__item'); // Get the closest parent product item
-        const productTitle = this.getAttribute('data-title');
-        const productPrice = this.getAttribute('data-price');
-        const productDescription = this.getAttribute('data-description');
-        const productImage = this.getAttribute('data-image');
-        console.log(productItem)
+        const title = addIcon.getAttribute('data-title');
+        const price = addIcon.getAttribute('data-price');
+        const description = addIcon.getAttribute('data-description');
 
         modalContent.innerHTML = `
   <div class="product-details">
-  
-    <!-- product details section -->
-  <div class="product-details__description __dhiwise1734259974781">
-    <div class="description__image-text-wrapper">
 
-      <div class="image-text-wrapper__text">
-         <p class="text__title">
-          ${
-          product.title
-        }
-        </p>
-        <p class="text__price">
-          ${
-          product.price | money
-        }
-        </p>
-        <p class="text__description">
-          ${
-          product.description | strip_html | truncatewords : 30
-        }
-        </p>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   <div class="product-details">
+          <h2>${title}</h2>
+          <p>${price}</p>
+          <p>${description}</p>
+        </div>
   
   </div>
       `;
