@@ -24,13 +24,13 @@
     </div>
 </div>
   {% comment %} <!-- Modal structure -->
-                                                  <div id="productModal" class="product-modal">
-                                                    <div class="modal-content">
-                                                      <span class="close-btn" id="closeModal">&times;</span>
-                                                      <div id="modalContent"></div>
-                                                    <!-- This will hold the modal content -->
-                                                    </div>
-                          </div> {% endcomment %}
+                                              <div id="productModal" class="product-modal">
+                                                <div class="modal-content">
+                                                  <span class="close-btn" id="closeModal">&times;</span>
+                                                  <div id="modalContent"></div>
+                                                <!-- This will hold the modal content -->
+                                                </div>
+                        </div> {% endcomment %}
   {% render 'product-modal' %}
 </div>
 
@@ -80,10 +80,7 @@
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
         const productItem = this.closest('.image-gallery__item'); // Get the closest parent product item
-        const productImage = item.querySelector('img').getAttribute('data-product-image');
-        const productTitle = item.querySelector('img').getAttribute('data-product-title');
-        const productPrice = item.querySelector('img').getAttribute('data-product-price');
-        const productDescription = item.querySelector('img').getAttribute('data-product-description');
+        const productTitle = productItem.querySelector('img').alt;
 
         modalContent.innerHTML = `
   <div class="product-details">
@@ -91,24 +88,15 @@
     <!-- product details section -->
   <div class="product-details__description __dhiwise1734259974781">
     <div class="description__image-text-wrapper">
-      <img
-       src="${productImage}"
-                alt="${productTitle}"
-        width="120"
-        height="140"
-        loading="lazy"
-        class="image-text-wrapper__image" />
+
       <div class="image-text-wrapper__text">
          <p class="text__title">
                   ${productTitle}
                 </p>
                 <p class="text__price">
-                  ${productPrice}
                 </p>
                 <p class="text__description">
-                  ${
-          productDescription | strip_html | truncatewords : 30
-        }
+                 
                 </p>
       </div>
     </div>
