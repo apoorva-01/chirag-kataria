@@ -17,9 +17,7 @@
             height="444"
             loading="lazy"
             class="image-gallery__image">
-          {% render 'img_plus'
-            , class: 'image-gallery__add-icon'
-            , datamodalid: "modal-{{ product.title }}" %}
+          {% render 'img_plus', class: 'image-gallery__add-icon', datamodalid: "modal-" | append: product.title %}
 
 
           {% comment %} {% render 'product-modal' %} {% endcomment %}
