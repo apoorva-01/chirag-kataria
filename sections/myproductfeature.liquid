@@ -37,7 +37,6 @@
           {% unless variant.option2 == blank %}
             <div class="color-option" style="border:  4px solid {{ variant.option2 | downcase }};">
               <span class="color-name">{{ variant.option2 }}</span>
-              <div class="inner-border"></div>
             </div>
             {% assign colors = colors | append: variant.option2 | append: ',' %}
           {% endunless %}
