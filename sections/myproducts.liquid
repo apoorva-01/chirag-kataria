@@ -114,24 +114,17 @@
   .product-modal {
     display: none;
     position: fixed;
-    /* Ensure it's fixed to the screen */
     z-index: 1000;
-    /* Ensure it overlays above other elements */
-    left: 0;
-    top: 0;
+    left: 20px;
+    top: 20px;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.7);
-    /* Semi-transparent background */
     justify-content: center;
-    /* Center horizontally */
     align-items: center;
-    /* Center vertically */
     overflow: auto;
-    /* Allow scrolling if modal content is taller than the screen */
   }
 
-  /* Modal content */
   .modal-content {
     position: relative;
     background-color: white;
@@ -141,10 +134,8 @@
     max-width: 600px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     text-align: center;
-    /* Center text */
   }
 
-  /* Close button */
   .close-btn {
     position: absolute;
     top: 10px;
@@ -152,12 +143,6 @@
     font-size: 30px;
     color: #333;
     cursor: pointer;
-  }
-
-  /* Modal content area */
-  #modalContent {
-    padding: 10px;
-    /* Optional styling */
   }
 
   .image-gallery {
