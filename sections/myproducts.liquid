@@ -19,7 +19,7 @@
             class="image-gallery__image">
           {% render 'img_plus'
             , class: 'image-gallery__add-icon'
-            , data: product.title %}
+            , data: product %}
           {% render 'product-modal' %}
         </div>
       {%- endfor -%}
@@ -74,7 +74,7 @@
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
         console.log(addIcon);
-        console.log('Title:', addIcon.getAttribute('data'));
+        console.log('Title:', addIcon.getAttribute('data').title);
 
 
         modalContent.innerHTML = `
