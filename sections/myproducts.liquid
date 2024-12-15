@@ -71,6 +71,10 @@
     addIcons.forEach((addIcon) => {
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
+        console.log(addIcon);
+        console.log('Title:', addIcon.getAttribute('data-title'));
+        console.log('Price:', addIcon.getAttribute('data-price'));
+        console.log('Description:', addIcon.getAttribute('data-description'));
         const title = addIcon.getAttribute('data-title');
         const price = addIcon.getAttribute('data-price');
         const description = addIcon.getAttribute('data-description');
