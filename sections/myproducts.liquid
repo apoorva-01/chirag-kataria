@@ -19,9 +19,7 @@
             class="image-gallery__image">
           {% render 'img_plus'
             , class: 'image-gallery__add-icon'
-            , title: product.title
-            , price: product.price
-            , description: product.description %}
+            , data-title: product.title %}
           {% render 'product-modal' %}
         </div>
       {%- endfor -%}
