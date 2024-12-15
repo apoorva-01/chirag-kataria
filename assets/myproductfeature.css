@@ -69,7 +69,24 @@ img {
     --space-xs: 2px;
 }
 
-.__dhiwise1734259974781.product-details__description {
+.flex-row-center-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.product-details {
+    background-color: var(--white_a700);
+    box-shadow: var(--shadow-xs);
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 12px 14px;
+}
+
+.__dhiwise1734259974781 .product-details__description {
     width: 100%;
 }
 
