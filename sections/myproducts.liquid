@@ -25,7 +25,6 @@
           {% comment %} {% render 'product-modal' %} {% endcomment %}
           <div id="{{product.id}}" class="product-modal">
             <div class="product-details ">
-              <span class="close-btn" id="closeModal">&times;</span>
               <!-- product details section -->
               <div class="product-details__description __dhiwise1734259974781">
                 <div class="description__image-text-wrapper">
@@ -109,62 +108,6 @@
 
 </div>
 
-{% javascript %}
-  document.addEventListener('DOMContentLoaded', function() {
-    const addIcons = document.querySelectorAll('.image-gallery__add-icon');
-
-    addIcons.forEach((icon) => {
-      icon.addEventListener('click', function() {
-        const modalId = icon.getAttribute('datamodalid');
-        console.log("modelid", modalId)
-        const modal = document.getElementById(modalId);
-        modal.style.display = 'block';
-      });
-    });
-
-// Close modal when clicking outside or on the close button
-    const modals = document.querySelectorAll('.product-modal');
-    modals.forEach((modal) => {
-      modal.addEventListener('click', function(event) {
-        if (event.target === modal || event.target.classList.contains('close-btn')) {
-          modal.style.display = 'none';
-        }
-      });
-    });
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-    var addToCartButton = document.getElementById('AddToCart');
-    addToCartButton.addEventListener('click', function() {
-      var variantId = {{ product.selected_or_first_available_variant.id }};
-      var quantity = 1;
-
-// Set the quantity to 1
-// Send a POST request to add the item to the cart
-      fetch('/cart/add.js', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(
-          {
-            items: [
-              {
-                id: variantId,
-                quantity: quantity
-              }
-            ]
-          }
-        )
-      }).then((response) => response.json()).then((data) => {
-        console.log('Product added to cart:', data);
-      }).catch((error) => {
-        console.error('Error:', error);
-      });
-    });
-  });
-{% endjavascript %}
-
 
 {% schema %}
   {
@@ -200,6 +143,32 @@
     ]
   }
 {% endschema %}
+{% javascript %}
+  document.addEventListener('DOMContentLoaded', function() {
+    const addIcons = document.querySelectorAll('.image-gallery__add-icon');
+
+    addIcons.forEach((icon) => {
+      icon.addEventListener('click', function() {
+        const modalId = icon.getAttribute('datamodalid');
+        console.log("modelid", modalId)
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'block';
+      });
+    });
+
+// Close modal when clicking outside or on the close button
+    const modals = document.querySelectorAll('.product-modal');
+    modals.forEach((modal) => {
+      modal.addEventListener('click', function(event) {
+        if (event.target === modal || event.target.classList.contains('close-btn')) {
+          modal.style.display = 'none';
+        }
+      });
+    });
+  });
+
+
+{% endjavascript %}
 
 {% stylesheet %}
   .product-modal {
