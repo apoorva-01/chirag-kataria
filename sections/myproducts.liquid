@@ -79,6 +79,7 @@
 
     addIcons.forEach((addIcon) => {
       addIcon.addEventListener('click', function() {
+        console.log('Add icon clicked');
         const productItem = this.closest('.image-gallery__item'); // Get the closest parent product item
         const productTitle = productItem.querySelector('img').alt;
 
