@@ -167,7 +167,36 @@
     });
   });
 
+  document.addEventListener('DOMContentLoaded', function() {
+    var addToCartButton = document.getElementById('AddToCart');
+    addToCartButton.addEventListener('click', function() {
+      var variantId = {{ product.selected_or_first_available_variant.id }};
+      var quantity = 1;
 
+// Set the quantity to 1
+// Send a POST request to add the item to the cart
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(
+          {
+            items: [
+              {
+                id: variantId,
+                quantity: quantity
+              }
+            ]
+          }
+        )
+      }).then((response) => response.json()).then((data) => {
+        console.log('Product added to cart:', data);
+      }).catch((error) => {
+        console.error('Error:', error);
+      });
+    });
+  });
 {% endjavascript %}
 
 {% stylesheet %}
