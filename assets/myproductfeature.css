@@ -289,24 +289,3 @@ img {
     font-weight: bold;
     cursor: pointer;
 }
-
-.color-option:not(:last-child)::after {
-    content: "";
-    position: absolute;
-    top: 10%;
-    right: 0;
-    bottom: 10%;
-    width: 1px;
-    background-color: black;
-}
-
-.color-option.selected {
-    border-left: 4px solid blue;
-    color: black;
-    background-color: white;
-}
-
-
-/* 
- */
-/*  */
