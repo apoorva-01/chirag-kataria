@@ -69,6 +69,7 @@
     color: var(--black_900) !important;
     font-size: 70px;
     font-weight: 500;
+    margin: 0;
 
     @media only screen and (max-width: 1050px) {
         font-size: 48px;
@@ -77,7 +78,7 @@
 
 .myherobanner .gift-guide__description {
     color: var(--black_900) !important;
-    margin-top: 32px;
+    margin-top: 10px;
     font-size: 20px;
     font-weight: 400;
     width: 36%;
@@ -90,7 +91,7 @@
 
 .myherobanner .gift-guide__button {
     color: var(--white_a700);
-    margin-top: 50px;
+    margin-top: 20px;
     padding-left: 34px;
     padding-right: 22px;
     text-transform: uppercase;
