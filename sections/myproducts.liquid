@@ -95,13 +95,19 @@
 
       <div class="image-text-wrapper__text">
          <p class="text__title">
-          {{ productTitle }}
+          ${
+          product.title
+        }
         </p>
         <p class="text__price">
-          {{ productPrice | money }}
+          ${
+          product.price | money
+        }
         </p>
         <p class="text__description">
-          {{ productDescription | strip_html | truncatewords: 30 }}
+          ${
+          product.description | strip_html | truncatewords : 30
+        }
         </p>
       </div>
     </div>
