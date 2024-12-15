@@ -77,12 +77,52 @@
         console.log(addIcon);
         console.log('Image:', addIcon.getAttribute('dataimage'));
         console.log('Title:', addIcon.getAttribute('datatitle'));
+        console.log('Price:', addIcon.getAttribute('dataprice'));
+        console.log('Description:', addIcon.getAttribute('datadescription'));
 
         modalContent.innerHTML = `
   <div class="product-details">
-          <h2>${
+    <div class="product-details__description __dhiwise1734259974781">
+    <div class="description__image-text-wrapper">
+      <img
+        src="${
+          addIcon.getAttribute('dataimage') | image_url : width : 120
+        }"
+        alt="${
+          addIcon.getAttribute('datatitle') | escape
+        }"
+        width="120"
+        height="140"
+        loading="lazy"
+        class="image-text-wrapper__image" />
+      <div class="image-text-wrapper__text">
+        <p class="text__title">
+          ${
           addIcon.getAttribute('datatitle')
-        }</h2>
+        }
+        </p>
+        <p class="text__price">
+          ${
+          addIcon.getAttribute('dataprice') | money
+        }
+        </p>
+        <p class="text__description">
+          ${
+          addIcon.getAttribute('datadescription') | strip_html | truncatewords : 30
+        }
+        </p>
+      </div>
+    </div>
+  </div>
+    
+
+
+
+
+
+
+
+
   </div>
       `;
 
