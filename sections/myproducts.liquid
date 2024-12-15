@@ -71,27 +71,41 @@
 {% javascript %}
   document.addEventListener('DOMContentLoaded', function() {
     const addIcons = document.querySelectorAll('.image-gallery__add-icon');
-    console.log(addIcons); // Check if this prints the correct elements
-
-    if (addIcons.length === 0) {
-      console.log("No add-icons found!");
-    }
+    const productModal = document.getElementById('productModal');
+    const closeModalButton = document.getElementById('closeModal');
+    const modalContent = document.getElementById('modalContent');
 
     addIcons.forEach((addIcon) => {
       addIcon.addEventListener('click', function() {
-        console.log("Add icon clicked"); // Debugging line
-        const productItem = this.closest('.image-gallery__item');
+        console.log('Add icon clicked');
+        const productItem = this.closest('.image-gallery__item'); // Get the closest parent product item
         const productTitle = productItem.querySelector('img').alt;
 
-        const productModal = document.getElementById('productModal');
-        const modalContent = document.getElementById('modalContent');
+// Assuming alt attribute holds the title of the product
+
+// You can also fetch product data dynamically here. For example:
+// Here I am assuming you have a way to get product details.
         modalContent.innerHTML = `
         <h2>${productTitle}</h2>
         <p>Details for ${productTitle} will go here.</p>
+        <!-- You can add more product info as required -->
       `;
 
+// Display the modal
         productModal.style.display = 'block';
       });
+    });
+
+// Close the modal when the close button is clicked
+    closeModalButton.addEventListener('click', function() {
+      productModal.style.display = 'none';
+    });
+
+// Close the modal if the user clicks outside the modal content
+    window.addEventListener('click', function(event) {
+      if (event.target === productModal) {
+        productModal.style.display = 'none';
+      }
     });
   });
 {% endjavascript %}
