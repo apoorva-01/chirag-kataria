@@ -17,7 +17,12 @@
             height="444"
             loading="lazy"
             class="image-gallery__image">
-          {% render 'img_plus', class: 'image-gallery__add-icon', dataimage: product.featured_image, datatitle: product.title, dataprice: product.price | money, datadescription: product.description
+          {% render 'img_plus'
+            , class: 'image-gallery__add-icon'
+            , dataimage: product.featured_image
+            , datatitle: product.title
+            , dataprice: product.price
+            , datadescription: product.description
           %}
           {% render 'product-modal' %}
         </div>
