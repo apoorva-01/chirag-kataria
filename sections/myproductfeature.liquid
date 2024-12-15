@@ -102,7 +102,8 @@
   </button>
 </div>
 <script>
-   console.log("Debug: {{ product }}");
+   console.log("Debug: {{ product.title }}");
+   console.log("Debug: {{ product.variant_picker }}");
     document.addEventListener('DOMContentLoaded', function () {
         var addToCartButton = document.getElementById('AddToCart');
         addToCartButton.addEventListener('click', function () {
