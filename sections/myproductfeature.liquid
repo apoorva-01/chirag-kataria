@@ -35,90 +35,87 @@
     </div>
   </div>
 
-  <div class="color-selector">
-    <label for="color">Color</label>
-    <div class="color-options">
-      <div class="color-option selected">
-        <span class="color-name">Blue</span>
-      </div>
-      <div class="color-option">
-        <span class="color-name">Black</span>
-      </div>
-    </div>
-  </div>
-  {% for variant in product.variants %}
-    <div class="variant" data-variant-id="{{ variant.id }}">
-      <p>Size: {{ variant.option1 }}</p>
-      <p>Color: {{ variant.option2 }}</p>
-    </div>
-  {% endfor %}
-  <ul>
-    {% assign colors = '' %}
-    {% for variant in product.variants %}
-      {% unless colors contains variant.option2 %}
-        {% unless variant.option2 == blank %}
-          <li>{{ variant.option2 }}</li>
-          {% assign colors = colors | append: variant.option2 | append: ',' %}
-        {% endunless %}
-      {% endunless %}
-    {% endfor %}
-  </ul>
+  {% comment %} <div class="color-selector">
+                <label for="color">Color</label>
+                <div class="color-options">
+                  <div class="color-option selected">
+                    <span class="color-name">Blue</span>
+                  </div>
+                  <div class="color-option">
+                    <span class="color-name">Black</span>
+                  </div>
+                </div>
+        </div> {% endcomment %}
+
+  {% comment %}   
+              {% for variant in product.variants %}
+                <div class="variant" data-variant-id="{{ variant.id }}">
+                  <p>Size: {{ variant.option1 }}</p>
+                  <p>Color: {{ variant.option2 }}</p>
+                </div>
+        {% endfor %} {% endcomment %}
 
 
   <!-- product color options section -->
-  {% comment %} {% assign current_product = product %}
-                                                                                                                                        <p class="color-selection__title">
-                                                                                                                                    {{ section.settings.color }} 
-                                                                                                                                        White
-                                                                                                                                      </p>
-                                                                                                                                      <div class="color-selection__options">
-                                                                                                                                        {% for variant in current_product.variants %}
-                                                                                                                                          {% if variant.available %}
-                                                                                                                                            <div class="options__{{ variant.title | handleize }}">
-                                                                                                                                              <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                                                                                                                                                <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
-                                                                                                                                                <p class="options__{{ variant.title | handleize }}">
-                                                                                                                                                  {{ variant.title }} 
-                                                                                                                                                  Blue
-                                                                                                                                                </p>
-                                                                                                                                              </div>
-                                                                                                                                              <div class="options__line"></div>
-                                                                                                                                            </div>
-                                                                                                                                          {% endif %}
-                                                                                                                                        {% endfor %}
-                                                                                                                                      </div>
-                                                                  </div> {% endcomment %}
-
-
-  <!-- product size selection section -->
-  {% if product.options_with_values.size > 0 %}
-    <div class="product-details__size-selection">
-      <p class="color-selection__title">
-        {{ 'products.product.size' | t }}
-      </p>
-      <select
-        name="size"
-        style="background-image: url({{ 'defaultNoData.png' | file_url }})"
-        class="size-selection__dropdown">
-        {% for value in product.options_with_values.first.values %}
-          <option value="{{ value | escape }}">{{ value }}</option>
-        {% endfor %}
-      </select>
+  <div class="color-selector">
+    <label for="color">Color</label>
+    <div class="color-options">
+      {% assign colors = '' %}
+      {% for variant in product.variants %}
+        {% unless colors contains variant.option2 %}
+          {% unless variant.option2 == blank %}
+            <div class="color-option">
+              <span class="color-name">{{ variant.option2 }}</span>
+            </div>
+            {% assign colors = colors | append: variant.option2 | append: ',' %}
+          {% endunless %}
+        {% endunless %}
+      {% endfor %}
     </div>
-  {% endif %}
-
-  <!-- add to cart button section -->
-  <button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
-    <span>
-      {{
-        'products.product.add_to_cart' | t }}</span>
-    <div class="right-icon-wrapper">
-      {% render 'img_line_15'
-        , class: "line-15" %}
-    </div>
-  </button>
-</div>
-<script>
+  </div>
+  <p class="color-selection__title">
+    {{ section.settings.color }}
+    White
+  </p>
+  <div class="color-selection__options">
+    {% for variant in current_product.variants %}
+      {% if variant.available %}
+        <div class="options__{{ variant.title | handleize }}">
+          <div class="{{ variant.title | handleize }}__line-text-wrapper">
+            <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
+            <p class="options__{{ variant.title | handleize }}">
+              {{ variant.title }}
+              Blue
+            </p>
+          </div>
+          <div class="options__line"></div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>{% endcomment %}<!-- product size selection section -->
+{% if product.options_with_values.size > 0 %}
+<div class="product-details__size-selection">
+  <p class="color-selection__title">
+    {{ 'products.product.size' | t }}
+  </p>
+  <select
+    name="size"
+    style="background-image: url({{ 'defaultNoData.png' | file_url }})"
+    class="size-selection__dropdown">
+    {% for value in product.options_with_values.first.values %}
+      <option value="{{ value | escape }}">{{ value }}</option>
+    {% endfor %}
+  </select>
+</div>{% endif %}<!-- add to cart button section -->
+<button class="flex-row-center-center product-details__add-to-cart" id="AddToCart">
+<span>
+  {{
+    'products.product.add_to_cart' | t }}</span>
+<div class="right-icon-wrapper">
+  {% render 'img_line_15'
+    , class: "line-15" %}
+</div></button></div><script>
    console.log("Debug: {{ product.title }}");
    console.log("Debug: {{ product.variant_picker }}");
     document.addEventListener('DOMContentLoaded', function () {
@@ -147,27 +144,25 @@
             });
     });
   });
-</script>
-{% schema %}
-  {
-    "name": "t:sections.myproductfeature.name",
-    "tag": "section",
-    "settings": [
-      {
-        "type": "product",
-        "id": "product",
-        "label": "t:sections.myproductfeature.settings.product"
-      },
-      {
-        "type": "image_picker",
-        "id": "image_846_one",
-        "label": "t:sections.myproductfeature.settings.image_846_one"
-      }
-    ],
-    "presets": [
-      {
-        "name": "t:sections.myproductfeature.presets.name"
-      }
-    ]
-  }
-{% endschema %}
+</script>{% schema %}
+{
+  "name": "t:sections.myproductfeature.name",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "t:sections.myproductfeature.settings.product"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_846_one",
+      "label": "t:sections.myproductfeature.settings.image_846_one"
+    }
+  ],
+  "presets": [
+    {
+      "name": "t:sections.myproductfeature.presets.name"
+    }
+  ]
+}{% endschema %}
