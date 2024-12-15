@@ -80,17 +80,7 @@
   <div class="product-details">
   <div class="product-details__description __dhiwise1734259974781">
     <div class="description__image-text-wrapper">
-      <img
-        src="${
-          JSON.parse(this.getAttribute('image')) | image_url : width : 120
-        }"
-        alt="${
-          JSON.parse(this.getAttribute('title')) | escape
-        }"
-        width="120"
-        height="140"
-        loading="lazy"
-        class="image-text-wrapper__image" />
+     
       <div class="image-text-wrapper__text">
         <p class="text__title">
           ${
@@ -98,15 +88,7 @@
         }
         </p>
         <p class="text__price">
-          ${
-          JSON.parse(this.getAttribute('price')) | money
-        }
-        </p>
-        <p class="text__description">
-          ${
-          JSON.parse(this.getAttribute('description')) | strip_html | truncatewords : 30
-        }
-        </p>
+     
       </div>
     </div>
   </div>
