@@ -119,6 +119,7 @@ img {
 
 .myherobanner .gift-guide__column {
     margin-top: 348px;
+    margin-bottom: 30px;
     width: 100%;
     display: flex;
     flex-direction: column;
