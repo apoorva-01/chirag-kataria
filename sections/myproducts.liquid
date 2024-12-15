@@ -75,14 +75,13 @@
         console.log('Add icon clicked');
         console.log(addIcon);
         console.log('Title:', addIcon.getAttribute('data').title);
-
+        console.log('Title:', addIcon.getAttribute('data').price);
 
         modalContent.innerHTML = `
   <div class="product-details">
           <h2>${
-          addIcon.getAttribute('data')
+          addIcon.getAttribute('data').title
         }</h2>
-  
   </div>
       `;
 
