@@ -285,12 +285,6 @@
         }
       }
     },
-    "myproductfeature":{
-      "option1": "Option1",
-      "option2": "Option2",
-      "option3": "Option3",
-       "lbl_add_to_cart": "Add to cart"
-    },
     "announcements": {
       "previous_announcement": "Previous announcement",
       "next_announcement": "Next announcement",

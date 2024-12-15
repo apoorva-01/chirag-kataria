@@ -439,16 +439,6 @@
         }
       }
     },
-    "myproductfeature": {
-      "name": "MyProductFeature",
-      "presets": {
-        "name": "MyProductFeature"
-      },
-      "settings": {
-        "product": "Select Product",
-        "image_846_one": "Additional Image"
-      }
-    },
     "all": {
       "animation": {
         "content": "Animations",
