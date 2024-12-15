@@ -1,8 +1,8 @@
 {{ 'myherobanner.css' | asset_url | stylesheet_tag }}
 
 <!-- Hero Section -->
-<div class="myherobanner">
-  <div class="myherobanner__background" style="background-image: url({{ section.settings.background_image | img_url: 'master' }})">
+<div class="myherobanner" style="background-image: url({{ section.settings.background_image | img_url: 'master' }})">
+  <div class="">
     <div class="gift-guide">
       <div class="gift-guide__column">
         <h1 class="gift-guide__title">{{ section.settings.thegiftguide }}</h1>
