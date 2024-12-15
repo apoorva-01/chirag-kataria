@@ -171,22 +171,21 @@ img {
 
 /* Color Stying*/
 /* */
-.product-details .color-selector {
+.color-selector {
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 5px;
 }
 
-.product-details .color-selector label {
+.color-selector label {
     font-size: 14px;
     color: #333;
 }
 
-.product-details .color-options {
+.color-options {
     display: flex;
     border: 1px solid #ccc;
-
 }
 
 .color-option {
