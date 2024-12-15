@@ -24,13 +24,13 @@
     </div>
 </div>
   {% comment %} <!-- Modal structure -->
-                                              <div id="productModal" class="product-modal">
-                                                <div class="modal-content">
-                                                  <span class="close-btn" id="closeModal">&times;</span>
-                                                  <div id="modalContent"></div>
-                                                <!-- This will hold the modal content -->
-                                                </div>
-                        </div> {% endcomment %}
+                                                          <div id="productModal" class="product-modal">
+                                                            <div class="modal-content">
+                                                              <span class="close-btn" id="closeModal">&times;</span>
+                                                              <div id="modalContent"></div>
+                                                            <!-- This will hold the modal content -->
+                                                            </div>
+                              </div> {% endcomment %}
   {% render 'product-modal' %}
 </div>
 
@@ -81,6 +81,7 @@
         console.log('Add icon clicked');
         const productItem = this.closest('.image-gallery__item'); // Get the closest parent product item
         const productTitle = productItem.querySelector('img').alt;
+        console.log(productItem)
 
         modalContent.innerHTML = `
   <div class="product-details">
@@ -117,11 +118,6 @@
   
   
   </div>
-
-
-        <h2>${productTitle}</h2>
-        <p>Details for ${productTitle} will go here.</p>
-        <!-- You can add more product info as required -->
       `;
 
 // Display the modal
