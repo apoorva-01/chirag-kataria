@@ -19,7 +19,7 @@
             class="image-gallery__image">
           {% render 'img_plus'
             , class: 'image-gallery__add-icon'
-          %}
+            , datamodalid="modal-{{ product.id }}" %}
 
 
           {% comment %} {% render 'product-modal' %} {% endcomment %}
@@ -150,7 +150,8 @@
 
     addIcons.forEach((icon) => {
       icon.addEventListener('click', function() {
-        const modalId = icon.getAttribute('data-modal-id');
+        const modalId = icon.getAttribute('datamodalid');
+        console.log("modelid", modalId)
         const modal = document.getElementById(modalId);
         modal.style.display = 'block';
       });
