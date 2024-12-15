@@ -53,35 +53,41 @@
     </div>
   {% endfor %}
   <ul>
-    {% unless roduct.variant.option2 == blank %}
-      <li>{{ variant.option2 }}</li>
-    {% endunless %}
+    {% assign colors = '' %}
+    {% for variant in product.variants %}
+      {% unless colors contains variant.option2 %}
+        {% unless variant.option2 == blank %}
+          <li>{{ variant.option2 }}</li>
+          {% assign colors = colors | append: variant.option2 | append: ',' %}
+        {% endunless %}
+      {% endunless %}
+    {% endfor %}
   </ul>
 
 
   <!-- product color options section -->
   {% comment %} {% assign current_product = product %}
-                                                                                                                    <p class="color-selection__title">
-                                                                                                                {{ section.settings.color }} 
-                                                                                                                    White
-                                                                                                                  </p>
-                                                                                                                  <div class="color-selection__options">
-                                                                                                                    {% for variant in current_product.variants %}
-                                                                                                                      {% if variant.available %}
-                                                                                                                        <div class="options__{{ variant.title | handleize }}">
-                                                                                                                          <div class="{{ variant.title | handleize }}__line-text-wrapper">
-                                                                                                                            <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
-                                                                                                                            <p class="options__{{ variant.title | handleize }}">
-                                                                                                                              {{ variant.title }} 
-                                                                                                                              Blue
-                                                                                                                            </p>
-                                                                                                                          </div>
-                                                                                                                          <div class="options__line"></div>
-                                                                                                                        </div>
-                                                                                                                      {% endif %}
-                                                                                                                    {% endfor %}
-                                                                                                                  </div>
-                                                        </div> {% endcomment %}
+                                                                                                                                        <p class="color-selection__title">
+                                                                                                                                    {{ section.settings.color }} 
+                                                                                                                                        White
+                                                                                                                                      </p>
+                                                                                                                                      <div class="color-selection__options">
+                                                                                                                                        {% for variant in current_product.variants %}
+                                                                                                                                          {% if variant.available %}
+                                                                                                                                            <div class="options__{{ variant.title | handleize }}">
+                                                                                                                                              <div class="{{ variant.title | handleize }}__line-text-wrapper">
+                                                                                                                                                <div class="line-text-wrapper__line" style="background-color: {{ variant.title | downcase }}"></div>
+                                                                                                                                                <p class="options__{{ variant.title | handleize }}">
+                                                                                                                                                  {{ variant.title }} 
+                                                                                                                                                  Blue
+                                                                                                                                                </p>
+                                                                                                                                              </div>
+                                                                                                                                              <div class="options__line"></div>
+                                                                                                                                            </div>
+                                                                                                                                          {% endif %}
+                                                                                                                                        {% endfor %}
+                                                                                                                                      </div>
+                                                                  </div> {% endcomment %}
 
 
   <!-- product size selection section -->
