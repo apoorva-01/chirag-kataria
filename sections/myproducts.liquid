@@ -17,11 +17,13 @@
             height="444"
             loading="lazy"
             class="image-gallery__image">
-          {% render 'img_plus', class: 'image-gallery__add-icon', datamodalid: "modal-" | append: product.title | escape %}
+          {% render 'img_plus'
+            , class: 'image-gallery__add-icon'
+            , datamodalid: product.id %}
 
 
           {% comment %} {% render 'product-modal' %} {% endcomment %}
-          <div id="modal-{{ product.id }}" class="product-modal">
+          <div id="{{product.id}}" class="product-modal">
             <div class="product-details ">
               <!-- product details section -->
               <div class="product-details__description __dhiwise1734259974781">
