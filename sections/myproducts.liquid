@@ -20,7 +20,10 @@
           {% render 'img_plus'
             , class: 'image-gallery__add-icon'
             , dataimage: product.featured_image
-            , datatitle: product.title %}
+            , datatitle: product.title 
+            , dataprice: product.price 
+            , datadescription: product.description
+          %}
           {% render 'product-modal' %}
         </div>
       {%- endfor -%}
