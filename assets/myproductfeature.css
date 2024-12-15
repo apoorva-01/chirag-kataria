@@ -186,6 +186,10 @@ img {
 .product-details .color-options {
     display: flex;
     border: 1px solid #ccc;
+
+}
+
+.color-option {
     flex: 1;
     text-align: center;
     padding: 10px 0;
@@ -196,6 +200,14 @@ img {
     border: 0.02px solid black;
 }
 
+.color-option:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 10%;
+    right: 0;
+    bottom: 10%;
+    width: 1px;
+}
 
 
 .product-details .size-selection__dropdown {
