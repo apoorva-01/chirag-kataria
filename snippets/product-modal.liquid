@@ -1,10 +1,8 @@
 {{ 'myproductfeature.css' | asset_url | stylesheet_tag }}
 
-<div id="productModal" class="product-modal">
-  <div class="modal-content">
-    {% comment %} <span class="close-btn" id="closeModal">&times;</span> {% endcomment %}
-    <div id="modalContent">
-      <!-- Other modal content goes here -->
-    </div>
+  <div id="productModal">
+  {% comment %} <span class="close-btn" id="closeModal">&times;</span> {% endcomment %}
+  <div id="modalContent">
+    <!-- Other modal content goes here -->
   </div>
 </div>

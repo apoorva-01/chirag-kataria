@@ -22,8 +22,7 @@
             , image: product.featured_image
             , title: product.title
             , price: product.price
-            , description: product.description
-            , variants: product.variants %}
+            , description: product.description %}
           {% render 'product-modal' %}
         </div>
       {%- endfor -%}
@@ -78,10 +77,8 @@
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
         console.log(addIcon);
-        const productData = JSON.parse(this.getAttribute('data'));
         modalContent.innerHTML = `
   <div class="product-details">
-    <!-- product details section -->
   <div class="product-details__description __dhiwise1734259974781">
     <div class="description__image-text-wrapper">
       <img
