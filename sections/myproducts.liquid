@@ -17,7 +17,9 @@
             height="444"
             loading="lazy"
             class="image-gallery__image">
-          {% render 'img_plus', class: 'image-gallery__add-icon', data-title: product.title, data-price: product.price | money, data-description: product.description %}
+          {% render 'img_plus'
+            , class: 'image-gallery__add-icon'
+            , data: product %}
           {% render 'product-modal' %}
         </div>
       {%- endfor -%}
@@ -72,13 +74,8 @@
       addIcon.addEventListener('click', function() {
         console.log('Add icon clicked');
         console.log(addIcon);
-        console.log('Title:', addIcon.getAttribute('data-title'));
-        console.log('Price:', addIcon.getAttribute('data-price'));
-        console.log('Description:', addIcon.getAttribute('data-description'));
-        const title = addIcon.getAttribute('data-title');
-        const price = addIcon.getAttribute('data-price');
-        const description = addIcon.getAttribute('data-description');
-
+        const productData = JSON.parse(this.getAttribute('data'));
+        console.log(productData)
         modalContent.innerHTML = `
   <div class="product-details">
 
