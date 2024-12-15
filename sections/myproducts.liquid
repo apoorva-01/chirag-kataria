@@ -19,13 +19,9 @@
             class="image-gallery__image">
           {% render 'img_plus'
             , class: 'image-gallery__add-icon'
-            , dataimage: product.featured_image
-            , datatitle: product.title
-            , dataprice: product.price
-            , datadescription: product.description
           %}
           {% comment %} {% render 'product-modal' %} {% endcomment %}
-          <div id="productModal" class="product-details">
+          <div id="productModal" class="product-details product-modal">
             <!-- product details section -->
             <div class="product-details__description __dhiwise1734259974781">
               <div class="description__image-text-wrapper">
@@ -162,18 +158,12 @@
 // console.log('Price:', addIcon.getAttribute('dataprice'));
 // console.log('Description:', addIcon.getAttribute('datadescription'));
 
-        modalContent.innerHTML = `
-  <div class="product-details">
+// modalContent.innerHTML = `
+// <div class="product-details">
 
 
-
-
-
-
-
-
-  </div>
-      `;
+// </div>
+// `;
 
 // Display the modal
         productModal.style.display = 'block';
